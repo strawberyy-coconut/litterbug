@@ -1,0 +1,29 @@
+{
+  "split": "val",
+  "per_kind": 3,
+  "kinds": {
+    "misses": [
+      "rgb_20250620_170415_png.rf.0f5ad9bf9da378a4f7cd7b321e4e4262",
+      "rgb_20250618_175840_png.rf.b7c1eeb32e3652d5606bcab893fcde73",
+      "rgb_20250619_160726_png.rf.0e16057f88e0e45befd72095ae473b09"
+    ],
+    "false-positives": [
+      "rgb_20250711_162604_png.rf.65c079be6c8cc47b6b37749847a05b54",
+      "rgb_20250618_175840_png.rf.b7c1eeb32e3652d5606bcab893fcde73",
+      "rgb_20250619_163757_png.rf.512ef001dde4d81e91af938cae4dae08"
+    ],
+    "confusion": [
+      "rgb_20250619_171308_png.rf.4f89c7bcb4c78d37778a9c0a301e4b68",
+      "rgb_20250618_174626_png.rf.acc5bfe9303ace1fca79e31a11b764e7",
+      "rgb_20250618_175229_png.rf.58d777bdf6fc1023d34671092ed70d5d"
+    ]
+  },
+  "totals": {
+    "matched": 4757,
+    "missed": 184,
+    "false_positives": 368,
+    "duplicate_false_positives": 156,
+    "background_false_positives": 212,
+    "confused": 135
+  }
+}

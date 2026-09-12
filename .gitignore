@@ -1,0 +1,33 @@
+# Datasets — large, never commit
+dataset/
+
+# Local dev environment — may hold secrets, never commit
+.dev.env
+
+# Python
+.venv
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Model weights — Ultralytics downloads checkpoints into the working directory, and
+# writes AMP-check weights into weights/. `*.pt` alone would miss non-.pt companions.
+weights/
+*.pt
+*.onnx
+*.onnx.data
+
+# Training output
+runs/
+
+# Validation overlays produced by the waste-dataset-validation skill
+validation_overlays/
+
+# Third-party stock footage used for the §8 video evaluation. These are watermarked
+# preview assets: licensed for evaluation only, with no redistribution right, so they
+# must not be committed. Re-obtain from the source URLs in report/report.md §11 and
+# re-run `uv run litterbug predict --source <file>` to reproduce the results.
+*.webm
+*.mp4

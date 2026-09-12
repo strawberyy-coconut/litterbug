@@ -1,0 +1,45 @@
+[project]
+name = "litterbug"
+version = "0.1.0"
+description = "Waste detection and instance segmentation on a conveyor belt (BUU Waste Occlusion)."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "opencv-python",
+    "tqdm",
+    "ultralytics",
+]
+
+[project.scripts]
+litterbug = "cli.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# The three concern modules plus the shared contract module. Flat by design:
+# one folder per concern, directly under src/.
+[tool.hatch.build.targets.wheel]
+packages = ["src/common", "src/training", "src/running", "src/cli"]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.uv]
+package = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
