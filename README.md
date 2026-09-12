@@ -11,10 +11,10 @@ objects rather than comparing two things at once.
 
 | Path | Purpose |
 | --- | --- |
-| `src/common/` | Shared surface only: the class contract, config, runtime guards. |
-| `src/training/` | Training, evaluation, error analysis, EDA and dataset validation. |
-| `src/running/` | Running a trained model over images and video (`predict.py`). |
-| `src/cli/` | Command line entry point. Argument parsing and dispatch, no pipeline logic. |
+| `src/litterbug/common/` | Shared surface only: the class contract, config, runtime guards. |
+| `src/litterbug/training/` | Training, evaluation, error analysis, EDA and dataset validation. |
+| `src/litterbug/running/` | Running a trained model over images and video (`predict.py`). |
+| `src/litterbug/cli/` | Command line entry point. Argument parsing and dispatch, no pipeline logic. |
 | `tests/` | Tests for the frozen config, the class contract and the matching conventions. |
 | `dataset/` | Input data. Git-ignored — see below. |
 | `runs/` | Training and inference artifacts. Git-ignored. |
@@ -58,7 +58,7 @@ The splits are pre-made and must be used as-is. `data.yaml` has no `path:` key, 
 resolve relative to the YAML's own directory.
 
 The class order — `0 Glass`, `1 Metal`, `2 Paper`, `3 Plastic` — is a contract with the annotations
-and is declared exactly once, in `src/common/constants.py`.
+and is declared exactly once, in `src/litterbug/common/constants.py`.
 
 Validate the data before the first run. This checks image/label pairing, polygon validity, coordinate
 ranges and class balance, and exits non-zero when something is wrong:
@@ -92,9 +92,9 @@ uv run pytest                                                      # contracts +
 ```
 
 Add `--dry-run` to `train` to print the exact configuration that would be handed to Ultralytics
-without touching the GPU. `python -m cli <command>` is equivalent to `uv run litterbug <command>`.
+without touching the GPU. `python -m litterbug.cli <command>` is equivalent to `uv run litterbug <command>`.
 
-Hyperparameters live in `src/common/config.py` and are never restated in documentation — if you want
+Hyperparameters live in `src/litterbug/common/config.py` and are never restated in documentation — if you want
 to know what a run used, read the resolved configuration it prints on startup, or the config dump
 written into the run directory.
 

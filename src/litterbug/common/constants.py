@@ -28,7 +28,9 @@ MODELS_FALLBACK: dict[str, str] = {
 
 TASKS: tuple[str, ...] = ("detect", "segment")
 
-PROJECT_ROOT: Path = Path(__file__).resolve().parents[2]
+# <root>/src/litterbug/common/constants.py -> parents[3] is <root>. Changing the package
+# depth moves this, and nothing else would notice until a path failed to resolve.
+PROJECT_ROOT: Path = Path(__file__).resolve().parents[3]
 DATA_YAML: Path = PROJECT_ROOT / "dataset" / "1_Model_Training_Data" / "data.yaml"
 RUNS_DIR: Path = PROJECT_ROOT / "runs"
 

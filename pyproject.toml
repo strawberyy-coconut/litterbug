@@ -12,16 +12,16 @@ dependencies = [
 ]
 
 [project.scripts]
-litterbug = "cli.main:main"
+litterbug = "litterbug.cli.main:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-# The three concern modules plus the shared contract module. Flat by design:
-# one folder per concern, directly under src/.
+# One installable package, so nothing lands in site-packages as a top-level name.
+# The concerns are subpackages of it: one folder per concern, under src/litterbug/.
 [tool.hatch.build.targets.wheel]
-packages = ["src/common", "src/training", "src/running", "src/cli"]
+packages = ["src/litterbug"]
 
 [dependency-groups]
 dev = [

@@ -4,7 +4,7 @@ Both rules exist because of measured failures on this hardware: training at the 
 batch peaked at 3.9 GB under AMP, but inference defaults to fp32 and OOMs at that same batch.
 """
 
-from common.config import resolve_batch, resolve_inference_batch
+from litterbug.common.config import resolve_batch, resolve_inference_batch
 
 
 def test_explicit_batch_wins_for_training():

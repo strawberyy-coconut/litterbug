@@ -7,7 +7,7 @@ what decides whether the right directories are being inspected at all.
 
 from pathlib import Path
 
-from training.validate_data import check_split, collect_splits, label_dir_for
+from litterbug.training.validate_data import check_split, collect_splits, label_dir_for
 
 GOOD_LABEL = "0 0.1 0.1 0.5 0.1 0.5 0.5 0.1 0.5\n"
 

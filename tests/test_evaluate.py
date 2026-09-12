@@ -10,7 +10,7 @@ from pathlib import Path
 
 import numpy as np
 
-from training.evaluate import EvalConfig, per_class_map, run_name_for
+from litterbug.training.evaluate import EvalConfig, per_class_map, run_name_for
 
 
 class _Metric:

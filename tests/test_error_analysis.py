@@ -7,7 +7,7 @@ numbers in the write-up. The matching convention and the label parser are pinned
 import numpy as np
 import pytest
 
-from training.error_analysis import (
+from litterbug.training.error_analysis import (
     _box_iou,
     _iou,
     _quartiles,

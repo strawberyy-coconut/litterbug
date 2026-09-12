@@ -81,7 +81,7 @@ BUU Waste Occlusion, 2,000 images at 640×640, pre-split and used as-is.
 | test | 200 | 2,507 | 12.54 |
 
 Classes, in fixed order: `0 Glass`, `1 Metal`, `2 Paper`, `3 Plastic`. The order is a contract with
-the annotations and is declared exactly once in `src/common/constants.py`.
+the annotations and is declared exactly once in `src/litterbug/common/constants.py`.
 
 A standalone validator confirmed image/label pairing, polygon validity, coordinate ranges and class
 balance before training, and continues to reproduce the baseline counts above exactly.
@@ -156,7 +156,7 @@ weights; 830 of 844 parameter tensors transferred.
 | GFLOPs | 37.3 (34.3 fused) |
 | Head | `Segment26` |
 
-The model name lives in exactly one place (`MODELS` in `src/common/constants.py`), so changing
+The model name lives in exactly one place (`MODELS` in `src/litterbug/common/constants.py`), so changing
 architecture is a one-line edit. A YOLO11 pair is recorded adjacent as `MODELS_FALLBACK`; the Day-1
 gate passed, so it was not needed.
 
@@ -181,7 +181,7 @@ works and for measuring *throughput*, but never for reading *quality*.
 
 ### 4.3 Schedule
 
-Frozen before training and not tuned. Values live in `src/common/config.py`.
+Frozen before training and not tuned. Values live in `src/litterbug/common/config.py`.
 
 | Setting | Value |
 | --- | --- |
@@ -846,9 +846,9 @@ uv run litterbug eda                                                       # dat
 uv run pytest                                     # contracts + config
 ```
 
-`python -m cli <command>` is equivalent to `uv run litterbug <command>`.
+`python -m litterbug.cli <command>` is equivalent to `uv run litterbug <command>`.
 
-Hyperparameters are **not** restated in documentation. They live in `src/common/config.py`; every run
+Hyperparameters are **not** restated in documentation. They live in `src/litterbug/common/config.py`; every run
 prints its resolved configuration on startup, and to see one without training, use `--dry-run`.
 
 ---

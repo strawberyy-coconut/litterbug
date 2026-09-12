@@ -14,9 +14,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from common.config import IMGSZ, SEED
-from common.constants import CLASS_NAMES, DATA_YAML, RUNS_DIR
-from common.runtime import resolve_device, resolve_workers, seed_everything, setup_logging
+from litterbug.common.config import IMGSZ, SEED
+from litterbug.common.constants import CLASS_NAMES, DATA_YAML, RUNS_DIR
+from litterbug.common.runtime import resolve_device, resolve_workers, seed_everything, setup_logging
 
 log = logging.getLogger("litterbug.eval")
 
@@ -181,7 +181,7 @@ def evaluate(cfg: EvalConfig) -> dict[str, Any]:
 
 def main(argv: Sequence[str] | None = None) -> int:
     """Allow ``python -m training.evaluate ...`` without a second argument parser."""
-    from cli.main import main as cli_main
+    from litterbug.cli.main import main as cli_main
 
     return cli_main(["val", *(sys.argv[1:] if argv is None else argv)])
 

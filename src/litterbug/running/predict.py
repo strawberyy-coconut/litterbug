@@ -17,8 +17,8 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
-from common.config import IMGSZ, resolve_inference_batch
-from common.constants import (
+from litterbug.common.config import IMGSZ, resolve_inference_batch
+from litterbug.common.constants import (
     CLASS_COLORS,
     CLASS_NAMES,
     DEFAULT_COLOR,
@@ -27,7 +27,7 @@ from common.constants import (
     VIDEO_EXTS,
     class_name,
 )
-from common.runtime import resolve_device, resolve_workers, setup_logging
+from litterbug.common.runtime import resolve_device, resolve_workers, setup_logging
 
 log = logging.getLogger("litterbug.predict")
 
@@ -439,7 +439,7 @@ def predict(cfg: PredictConfig) -> PredictResult:
 
 def main(argv: Sequence[str] | None = None) -> int:
     """Allow ``python -m running.predict ...`` without a second argument parser."""
-    from cli.main import main as cli_main
+    from litterbug.cli.main import main as cli_main
 
     return cli_main(["predict", *(sys.argv[1:] if argv is None else argv)])
 

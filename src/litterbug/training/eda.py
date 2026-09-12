@@ -18,9 +18,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from common.constants import CLASS_NAMES, IMAGE_EXTS, RUNS_DIR
-from common.runtime import setup_logging
-from training.error_analysis import split_paths
+from litterbug.common.constants import CLASS_NAMES, IMAGE_EXTS, RUNS_DIR
+from litterbug.common.runtime import setup_logging
+from litterbug.training.error_analysis import split_paths
 
 log = logging.getLogger("litterbug.eda")
 
@@ -207,7 +207,7 @@ def print_summary(report: dict[str, Any]) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     """Allow ``python -m training.eda ...`` without a second argument parser."""
-    from cli.main import main as cli_main
+    from litterbug.cli.main import main as cli_main
 
     return cli_main(["eda", *(sys.argv[1:] if argv is None else argv)])
 

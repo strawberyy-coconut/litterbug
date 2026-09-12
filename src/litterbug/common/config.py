@@ -9,8 +9,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from common.constants import DATA_YAML, MODELS, RUNS_DIR, TASKS
-from common.runtime import DEFAULT_SEED, resolve_workers, vram_gb
+from litterbug.common.constants import DATA_YAML, MODELS, RUNS_DIR, TASKS
+from litterbug.common.runtime import DEFAULT_SEED, resolve_workers, vram_gb
 
 # --------------------------------------------------------------------------- #
 # Frozen defaults

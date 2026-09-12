@@ -7,8 +7,8 @@ trained. These tests pin the behaviour that prevents it.
 
 import pytest
 
-from common.config import TrainConfig
-from training.train import resume_checkpoint
+from litterbug.common.config import TrainConfig
+from litterbug.training.train import resume_checkpoint
 
 
 def test_resume_requires_an_existing_last_checkpoint(tmp_path):

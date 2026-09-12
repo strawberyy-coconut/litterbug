@@ -12,9 +12,9 @@ from typing import Any
 
 import numpy as np
 
-from common.config import IMGSZ, resolve_inference_batch
-from common.constants import CLASS_NAMES, DATA_YAML, IMAGE_EXTS, RUNS_DIR
-from common.runtime import resolve_device, resolve_workers, setup_logging
+from litterbug.common.config import IMGSZ, resolve_inference_batch
+from litterbug.common.constants import CLASS_NAMES, DATA_YAML, IMAGE_EXTS, RUNS_DIR
+from litterbug.common.runtime import resolve_device, resolve_workers, setup_logging
 
 log = logging.getLogger("litterbug.analysis")
 
@@ -617,7 +617,7 @@ def print_summary(report: dict[str, Any]) -> None:
 
 def main(argv: list[str] | None = None) -> int:
     """Allow ``python -m training.error_analysis ...`` without a second argument parser."""
-    from cli.main import main as cli_main
+    from litterbug.cli.main import main as cli_main
 
     return cli_main(["analyze", *(sys.argv[1:] if argv is None else argv)])
 

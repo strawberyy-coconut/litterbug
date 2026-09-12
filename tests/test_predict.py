@@ -8,7 +8,7 @@ in the report, which is the same failure mode the confidence-threshold and match
 import numpy as np
 import pytest
 
-from running.predict import Detection, _track_ids, _track_summary
+from litterbug.running.predict import Detection, _track_ids, _track_summary
 
 
 def _detection(track_id, class_name="Glass"):

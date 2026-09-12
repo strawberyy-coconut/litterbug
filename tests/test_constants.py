@@ -4,7 +4,24 @@ The class order is a contract with the annotations; these tests exist so a carel
 edit fails loudly instead of silently retraining on mislabelled data.
 """
 
-from common.constants import CLASS_COLORS, CLASS_IDS, CLASS_NAMES, MODELS, TASKS
+from litterbug.common.constants import (
+    CLASS_COLORS,
+    CLASS_IDS,
+    CLASS_NAMES,
+    MODELS,
+    PROJECT_ROOT,
+    TASKS,
+)
+
+
+def test_project_root_is_the_repository():
+    """PROJECT_ROOT is derived from this module's depth in the package.
+
+    Moving the package one level up or down would silently point data and run paths at the
+    wrong place, so pin it to something that only exists at the repository root.
+    """
+    assert (PROJECT_ROOT / "pyproject.toml").is_file()
+    assert (PROJECT_ROOT / "src" / "litterbug" / "common" / "constants.py").is_file()
 
 
 def test_class_order_is_the_dataset_contract():

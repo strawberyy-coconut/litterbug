@@ -7,8 +7,8 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from common.config import TrainConfig, build_train_kwargs, describe_config
-from common.runtime import (
+from litterbug.common.config import TrainConfig, build_train_kwargs, describe_config
+from litterbug.common.runtime import (
     describe_environment,
     resolve_device,
     seed_everything,
@@ -80,7 +80,7 @@ def train(cfg: TrainConfig) -> Path:
 
 def main(argv: Sequence[str] | None = None) -> int:
     """Allow ``python -m training.train ...`` without duplicating the argument parser."""
-    from cli.main import main as cli_main
+    from litterbug.cli.main import main as cli_main
 
     return cli_main(["train", *(sys.argv[1:] if argv is None else argv)])
 

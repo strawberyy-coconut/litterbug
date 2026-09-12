@@ -6,9 +6,9 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from common.config import EPOCHS, IMGSZ, SEED
-from common.constants import DATA_YAML, RUNS_DIR, TASKS
-from common.runtime import setup_logging
+from litterbug.common.config import EPOCHS, IMGSZ, SEED
+from litterbug.common.constants import DATA_YAML, RUNS_DIR, TASKS
+from litterbug.common.runtime import setup_logging
 
 log = logging.getLogger("litterbug.cli")
 
@@ -19,8 +19,8 @@ RUNS_HELP = "Directory that run outputs are created under."
 
 
 def _handle_train(args: argparse.Namespace) -> int:
-    from common.config import TrainConfig
-    from training.train import train
+    from litterbug.common.config import TrainConfig
+    from litterbug.training.train import train
 
     train(
         TrainConfig(
@@ -42,7 +42,7 @@ def _handle_train(args: argparse.Namespace) -> int:
 
 
 def _handle_val(args: argparse.Namespace) -> int:
-    from training.evaluate import EvalConfig, evaluate
+    from litterbug.training.evaluate import EvalConfig, evaluate
 
     evaluate(
         EvalConfig(
@@ -63,7 +63,7 @@ def _handle_val(args: argparse.Namespace) -> int:
 
 
 def _handle_predict(args: argparse.Namespace) -> int:
-    from running.predict import PredictConfig, predict, to_json
+    from litterbug.running.predict import PredictConfig, predict, to_json
 
     result = predict(
         PredictConfig(
@@ -89,7 +89,7 @@ def _handle_predict(args: argparse.Namespace) -> int:
 
 
 def _handle_analyze(args: argparse.Namespace) -> int:
-    from training.error_analysis import DEFAULT_CONF, DEFAULT_IOU, AnalysisConfig, analyse
+    from litterbug.training.error_analysis import DEFAULT_CONF, DEFAULT_IOU, AnalysisConfig, analyse
 
     analyse(
         AnalysisConfig(
@@ -111,7 +111,7 @@ def _handle_analyze(args: argparse.Namespace) -> int:
 
 
 def _handle_eda(args: argparse.Namespace) -> int:
-    from training.eda import SPLITS, EdaConfig, eda
+    from litterbug.training.eda import SPLITS, EdaConfig, eda
 
     eda(
         EdaConfig(
@@ -126,8 +126,8 @@ def _handle_eda(args: argparse.Namespace) -> int:
 
 
 def _handle_examples(args: argparse.Namespace) -> int:
-    from training.error_analysis import DEFAULT_CONF, DEFAULT_IOU
-    from training.error_examples import FIGURES_DIR, ExampleConfig, examples
+    from litterbug.training.error_analysis import DEFAULT_CONF, DEFAULT_IOU
+    from litterbug.training.error_examples import FIGURES_DIR, ExampleConfig, examples
 
     examples(
         ExampleConfig(
@@ -150,7 +150,7 @@ def _handle_examples(args: argparse.Namespace) -> int:
 
 
 def _handle_validate(args: argparse.Namespace) -> int:
-    from training.validate_data import OVERLAY_DIR, ValidationConfig, validate_dataset
+    from litterbug.training.validate_data import OVERLAY_DIR, ValidationConfig, validate_dataset
 
     result = validate_dataset(
         ValidationConfig(

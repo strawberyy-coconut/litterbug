@@ -26,8 +26,14 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from common.constants import CLASS_COLORS, CLASS_NAMES, DATA_YAML, IMAGE_EXTS, PROJECT_ROOT
-from common.runtime import setup_logging
+from litterbug.common.constants import (
+    CLASS_COLORS,
+    CLASS_NAMES,
+    DATA_YAML,
+    IMAGE_EXTS,
+    PROJECT_ROOT,
+)
+from litterbug.common.runtime import setup_logging
 
 log = logging.getLogger("litterbug.validate")
 
@@ -385,7 +391,7 @@ def validate_dataset(cfg: ValidationConfig | None = None) -> dict[str, Any]:
 
 def main(argv: list[str] | None = None) -> int:
     """Allow ``python -m training.validate_data ...`` without a second argument parser."""
-    from cli.main import main as cli_main
+    from litterbug.cli.main import main as cli_main
 
     return cli_main(["validate", *(sys.argv[1:] if argv is None else argv)])
 

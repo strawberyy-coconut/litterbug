@@ -2,7 +2,7 @@
 
 import pytest
 
-from common.config import (
+from litterbug.common.config import (
     EPOCHS,
     IMGSZ,
     PATIENCE,
@@ -13,8 +13,8 @@ from common.config import (
     resolve_batch,
     segmentation_args,
 )
-from common.constants import DATA_YAML
-from common.runtime import resolve_workers
+from litterbug.common.constants import DATA_YAML
+from litterbug.common.runtime import resolve_workers
 
 
 def test_frozen_schedule_defaults():

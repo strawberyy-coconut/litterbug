@@ -25,10 +25,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from common.config import IMGSZ
-from common.constants import CLASS_COLORS, CLASS_NAMES, PROJECT_ROOT
-from common.runtime import setup_logging
-from training.error_analysis import (
+from litterbug.common.config import IMGSZ
+from litterbug.common.constants import CLASS_COLORS, CLASS_NAMES, PROJECT_ROOT
+from litterbug.common.runtime import setup_logging
+from litterbug.training.error_analysis import (
     DEFAULT_CONF,
     DEFAULT_IOU,
     AnalysisConfig,
@@ -452,7 +452,7 @@ def examples(cfg: ExampleConfig) -> dict[str, Any]:
 
 def main(argv: list[str] | None = None) -> int:
     """Allow ``python -m training.error_examples ...`` without a second argument parser."""
-    from cli.main import main as cli_main
+    from litterbug.cli.main import main as cli_main
 
     return cli_main(["examples", *(sys.argv[1:] if argv is None else argv)])
 
