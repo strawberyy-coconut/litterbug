@@ -1,0 +1,3 @@
+# A clone of this repo made from inside notebooks/. `./litterbug/` does not match: gitignore
+# patterns are relative to this file, and a leading `./` is not allowed.
+/litterbug/
