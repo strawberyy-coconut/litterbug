@@ -102,3 +102,8 @@ written into the run directory.
 
 Weights (`*.pt`), `runs/` and `dataset/` are inputs and outputs, not source. They are git-ignored and
 must stay that way.
+
+
+## Integrantes
+
+- Gustavo Medeiros Lima
