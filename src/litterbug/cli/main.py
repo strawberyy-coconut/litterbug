@@ -253,7 +253,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--conf",
         type=float,
         default=None,
-        help="Confidence threshold. Defaults to the F1-optimal value.",
+        help=(
+            "Confidence threshold. Defaults to 0.34, a recall-oriented operating "
+            "point (not the F1 optimum)."
+        ),
     )
     analyze.add_argument(
         "--iou-mode",
@@ -347,7 +350,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--conf",
         type=float,
         default=None,
-        help="Confidence threshold. Defaults to the F1-optimal value.",
+        help=(
+            "Confidence threshold. Defaults to 0.34, a recall-oriented operating "
+            "point (not the F1 optimum)."
+        ),
     )
     examples_parser.add_argument(
         "--iou-mode",

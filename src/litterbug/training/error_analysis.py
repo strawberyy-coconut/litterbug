@@ -18,7 +18,12 @@ from litterbug.common.runtime import resolve_device, resolve_workers, setup_logg
 
 log = logging.getLogger("litterbug.analysis")
 
-DEFAULT_CONF = 0.34  
+# Operating point for the analysis, and deliberately NOT the F1 optimum. Sweeping the val split
+# under this module's own convention (mask IoU >= 0.5, greedy one-to-one, class-agnostic) puts
+# the F1 optimum at 0.555 (F1 0.9559). Running at 0.34 costs 0.011 F1 and buys +0.020 recall
+# (0.9628 against 0.9431), which is the right trade for an error analysis: a higher floor would
+# manufacture misses rather than measure them. See report/report.md section 7.1.
+DEFAULT_CONF = 0.34
 DEFAULT_IOU = 0.5
 MISSED = "missed"
 
