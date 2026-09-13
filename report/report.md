@@ -1,7 +1,5 @@
 # litterbug — Trash Detection & Instance Segmentation on a Conveyor Belt
 
-**Integrantes:** <!-- FILL: names of all group members -->
-
 Instance segmentation and detection of waste objects on a conveyor belt, built on the BUU Waste
 Occlusion dataset [1] with Ultralytics YOLO26 [3]. Code revision `5744ee96` (2026-09-12).
 
