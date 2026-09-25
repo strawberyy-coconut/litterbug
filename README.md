@@ -104,6 +104,3 @@ Weights (`*.pt`), `runs/` and `dataset/` are inputs and outputs, not source. The
 must stay that way.
 
 
-## Integrantes
-
-- Gustavo Medeiros Lima
